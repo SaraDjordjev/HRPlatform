@@ -87,8 +87,7 @@ namespace HRPlatform.Migrations
 
                     b.HasIndex("CandidateId");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
+                    b.HasIndex("Name");
 
                     b.ToTable("Skills");
 

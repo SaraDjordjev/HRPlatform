@@ -3,6 +3,7 @@ using HRPlatform.Interfaces;
 using HRPlatform.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Extensions;
+using System.Text.RegularExpressions;
 
 namespace HRPlatform.Services
 {
@@ -16,6 +17,19 @@ namespace HRPlatform.Services
 		}
 		public async Task<Candidate> AddCandidateAsync(Candidate newCandidate)
 		{
+			//postojanje istog kandidata
+			var existingCandidate = await _context.Candidates.FirstOrDefaultAsync(c =>
+				//c.FullName == newCandidate.FullName &&
+				//c.DateOfBirth == newCandidate.DateOfBirth &&
+				c.Email == newCandidate.Email ||
+				c.ContactNumber == newCandidate.ContactNumber
+			);
+
+			if (existingCandidate != null)
+			{
+				throw new Exception("Candidate with the same information already exists.");
+			}
+
 			if (newCandidate.Skills != null && newCandidate.Skills.Any())
 			{
 				foreach (var skill in newCandidate.Skills)
@@ -47,11 +61,6 @@ namespace HRPlatform.Services
 			return candidate;
 		}
 
-		public Task<Candidate> SearchCandidatesAsync()
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task<Candidate?> UpdateCandidateAsync(int id, Candidate updateCandidate)
 		{
 			var existingCandidate = await _context.Candidates.FindAsync(id);
@@ -66,25 +75,29 @@ namespace HRPlatform.Services
 			return existingCandidate;
 		}
 
-		
-
-
-
-		/*public async Task<Skill> AddSkillToCandidateAsync(int id, string skillName)
-		{ 
-			var candidate = await _context.Candidates.Include(c => c.Skills).FirstOrDefaultAsync(c => c.Id == id);
-			if (candidate == null) throw new Exception("Candidate not found");
-
-			var newSkill = new Skill
+		public async Task<IEnumerable<Candidate>> SearchCandidatesAsync(string? name, string? skill)
+		{
+			// Ako nisu uneti ni name ni skill, ne vraćaj sve
+			if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(skill))
 			{
-				Name = skillName,
-				CandidateId = candidate.Id
-			};
+				return new List<Candidate>(); // prazna lista
+			}
 
-			await _context.Skills.AddAsync(newSkill);
-			await _context.SaveChangesAsync();
-			return newSkill;
+			var query = _context.Candidates.Include(c => c.Skills).AsQueryable(); //uslovi za dinamicko dodavanje
+
+			if (!string.IsNullOrWhiteSpace(name))
+			{
+				query = query.Where(c => c.FullName.ToLower().Contains(name.ToLower()));
+			}
+
+			if (!string.IsNullOrWhiteSpace(skill))
+			{
+				query = query.Where(c => c.Skills.Any(s => s.Name.ToLower().Contains(skill.ToLower()))); //Java->JavaScript
+				
+			}
+
+			return await query.ToListAsync();
 		}
-		*/
+
 	}
 }

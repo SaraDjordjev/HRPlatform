@@ -23,6 +23,8 @@ namespace HRPlatform.Models
 		public string Email { get; set; } //= string.Empty;
 		[Phone]
 		public string ContactNumber { get; set; } //= string.Empty;
+												  //public List<Skill> Skills { get; set; } = new List<Skill>();
+												  // many-to-many veza
 		public List<Skill> Skills { get; set; } = new List<Skill>();
 	}
 }

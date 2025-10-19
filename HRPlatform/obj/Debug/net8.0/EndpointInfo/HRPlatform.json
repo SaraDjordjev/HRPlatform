@@ -113,7 +113,7 @@
         }
       }
     },
-    "/api/Candidate/AddSkill/{candidateId}/skills": {
+    "/api/Candidate/AddSkillToCandidate/{candidateId}/skills": {
       "post": {
         "tags": [
           "Candidate"
@@ -210,6 +210,34 @@
           },
           {
             "name": "newName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Candidate/SearchCandidates/search": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skill",
             "in": "query",
             "schema": {
               "type": "string"

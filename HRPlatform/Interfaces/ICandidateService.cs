@@ -11,6 +11,6 @@ namespace HRPlatform.Interfaces
 
 		Task<Candidate?> DeleteCandidateAsync(int id);
 
-		Task<Candidate> SearchCandidatesAsync();
+		Task<IEnumerable<Candidate>> SearchCandidatesAsync(string? name, string? skill);
 	}
 }

@@ -2,6 +2,7 @@
 using HRPlatform.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HRPlatform.Controllers
 {
@@ -70,18 +71,22 @@ namespace HRPlatform.Controllers
 		}
 
 		[HttpPost("{candidateId}/skills")]
-		public async Task<IActionResult> AddSkill(int candidateId, [FromBody] string skillName)
+		public async Task<IActionResult> AddSkillToCandidate(int candidateId, [FromBody] string skillName)
 		{
+			if (string.IsNullOrWhiteSpace(skillName))
+				return BadRequest("Skill name cannot be empty.");
+
 			try
 			{
-				var skill = await _skillService.AddSkillToCandidateAsync(candidateId, skillName);
-				return Ok(skill);
+				var addedSkill = await _skillService.AddSkillToCandidateAsync(candidateId, skillName);
+				return Ok(addedSkill);
 			}
 			catch (Exception ex)
 			{
-				return NotFound(ex.Message);
+				return BadRequest(ex.Message);
 			}
 		}
+
 
 		[HttpDelete("{candidateId}/skills/{skillName}")]
 		public async Task<IActionResult> RemoveSkill(int candidateId, string skillName)
@@ -104,6 +109,18 @@ namespace HRPlatform.Controllers
 				return NotFound(new { message = ex.Message });
 			}
 		}
+
+		[HttpGet("search")]
+		public async Task<IActionResult> SearchCandidates([FromQuery] string? name, [FromQuery] string? skill)
+		{
+			var results = await _candidateService.SearchCandidatesAsync(name, skill);
+
+			if (results == null || !results.Any())
+				return NotFound("No candidates match the search criteria.");
+
+			return Ok(results);
+		}
+
 
 
 	}

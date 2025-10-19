@@ -1,8 +1,8 @@
 [
   {
     "ContainingType": "HRPlatform.Controllers.CandidateController",
-    "Method": "AddSkill",
-    "RelativePath": "api/Candidate/AddSkill/{candidateId}/skills",
+    "Method": "AddSkillToCandidate",
+    "RelativePath": "api/Candidate/AddSkillToCandidate/{candidateId}/skills",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -79,6 +79,27 @@
         "Name": "skillName",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "SearchCandidates",
+    "RelativePath": "api/Candidate/SearchCandidates/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skill",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
