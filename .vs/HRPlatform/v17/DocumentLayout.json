@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CS\\HRPlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|d:\\cs\\hrplatform\\hrplatform\\migrations\\20251018162140_seedinitialdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|solutionrelative:hrplatform\\migrations\\20251018162140_seedinitialdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|d:\\cs\\hrplatform\\hrplatform\\data\\hrplatformdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|solutionrelative:hrplatform\\data\\hrplatformdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|d:\\cs\\hrplatform\\hrplatform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|solutionrelative:hrplatform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|d:\\cs\\hrplatform\\hrplatform\\models\\candidate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|solutionrelative:hrplatform\\models\\candidate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|d:\\cs\\hrplatform\\hrplatform\\controllers\\candidatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|solutionrelative:hrplatform\\controllers\\candidatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|d:\\cs\\hrplatform\\hrplatform\\models\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B1DBC4D-5252-4FC4-BC46-3382B0687FDA}|HRPlatform\\HRPlatform.csproj|solutionrelative:hrplatform\\models\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20251018162140_SeedInitialDate.cs",
+              "DocumentMoniker": "D:\\CS\\HRPlatform\\HRPlatform\\Migrations\\20251018162140_SeedInitialDate.cs",
+              "RelativeDocumentMoniker": "HRPlatform\\Migrations\\20251018162140_SeedInitialDate.cs",
+              "ToolTip": "D:\\CS\\HRPlatform\\HRPlatform\\Migrations\\20251018162140_SeedInitialDate.cs",
+              "RelativeToolTip": "HRPlatform\\Migrations\\20251018162140_SeedInitialDate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T16:21:43.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CS\\HRPlatform\\HRPlatform\\Program.cs",
+              "RelativeDocumentMoniker": "HRPlatform\\Program.cs",
+              "ToolTip": "D:\\CS\\HRPlatform\\HRPlatform\\Program.cs",
+              "RelativeToolTip": "HRPlatform\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T16:16:24.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HRPlatformDbContext.cs",
+              "DocumentMoniker": "D:\\CS\\HRPlatform\\HRPlatform\\Data\\HRPlatformDbContext.cs",
+              "RelativeDocumentMoniker": "HRPlatform\\Data\\HRPlatformDbContext.cs",
+              "ToolTip": "D:\\CS\\HRPlatform\\HRPlatform\\Data\\HRPlatformDbContext.cs",
+              "RelativeToolTip": "HRPlatform\\Data\\HRPlatformDbContext.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T16:08:41.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Candidate.cs",
+              "DocumentMoniker": "D:\\CS\\HRPlatform\\HRPlatform\\Models\\Candidate.cs",
+              "RelativeDocumentMoniker": "HRPlatform\\Models\\Candidate.cs",
+              "ToolTip": "D:\\CS\\HRPlatform\\HRPlatform\\Models\\Candidate.cs",
+              "RelativeToolTip": "HRPlatform\\Models\\Candidate.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T16:06:07.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Skill.cs",
+              "DocumentMoniker": "D:\\CS\\HRPlatform\\HRPlatform\\Models\\Skill.cs",
+              "RelativeDocumentMoniker": "HRPlatform\\Models\\Skill.cs",
+              "ToolTip": "D:\\CS\\HRPlatform\\HRPlatform\\Models\\Skill.cs",
+              "RelativeToolTip": "HRPlatform\\Models\\Skill.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T18:59:15.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CandidateController.cs",
+              "DocumentMoniker": "D:\\CS\\HRPlatform\\HRPlatform\\Controllers\\CandidateController.cs",
+              "RelativeDocumentMoniker": "HRPlatform\\Controllers\\CandidateController.cs",
+              "ToolTip": "D:\\CS\\HRPlatform\\HRPlatform\\Controllers\\CandidateController.cs",
+              "RelativeToolTip": "HRPlatform\\Controllers\\CandidateController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAGcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T15:59:35.745Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

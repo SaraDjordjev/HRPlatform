@@ -1,0 +1,154 @@
+[
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "AddSkill",
+    "RelativePath": "api/Candidate/AddSkill/{candidateId}/skills",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "candidateId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "skillName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "CreateCandidate",
+    "RelativePath": "api/Candidate/CreateCandidate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newCandidate",
+        "Type": "HRPlatform.Models.Candidate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "DeleteCandidate",
+    "RelativePath": "api/Candidate/DeleteCandidate/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "GetAll",
+    "RelativePath": "api/Candidate/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "RemoveSkill",
+    "RelativePath": "api/Candidate/RemoveSkill/{candidateId}/skills/{skillName}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "candidateId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "skillName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "UpdateCandidate",
+    "RelativePath": "api/Candidate/UpdateCandidate/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateCandidate",
+        "Type": "HRPlatform.Models.Candidate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.CandidateController",
+    "Method": "UpdateSkillName",
+    "RelativePath": "api/Candidate/UpdateSkillName/{candidateId}/skills/update",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "candidateId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "oldName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "newName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRPlatform.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HRPlatform.WeatherForecast, HRPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
