@@ -1,0 +1,15 @@
+﻿# Visual Studio temporary files
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.dbmdl
+*.log
+
+# EF Core migrations cache
+Migrations/
+
+# OS generated files
+Thumbs.db
+*.DS_Store

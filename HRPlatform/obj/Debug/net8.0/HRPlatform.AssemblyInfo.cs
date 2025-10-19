@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HRPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd9561c5b0b4f7a7fe478a24e29f0b712be4dd4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e21df95ad9395d77e001cb7c1bb1e377f432694")]
 [assembly: System.Reflection.AssemblyProductAttribute("HRPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HRPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
