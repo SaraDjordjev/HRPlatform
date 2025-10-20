@@ -36,15 +36,7 @@ candidate, remove candidate, search candidate by name and/or given skill(s)
 
 ---
 
-## Example test
-
-Remove skill
-
- <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/72ca146a-6d37-406b-8428-0bee940b47bd" />
-
----
-
 ## Author
 
-Sara Djordjev
+Sara Djordjev,
 Final project — 2025
