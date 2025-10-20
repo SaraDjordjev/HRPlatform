@@ -16,15 +16,13 @@ namespace HRPlatform.Models
 		public Candidate() { }
 
 		public int Id { get; set; }
-		//[Required]
-		public string FullName { get; set; } //= string.Empty;
+		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
 		[EmailAddress]
-		public string Email { get; set; } //= string.Empty;
+		public string Email { get; set; }
 		[Phone]
-		public string ContactNumber { get; set; } //= string.Empty;
-												  //public List<Skill> Skills { get; set; } = new List<Skill>();
-												  // many-to-many veza
+		public string ContactNumber { get; set; }
+							
 		public List<Skill> Skills { get; set; } = new List<Skill>();
 	}
 }

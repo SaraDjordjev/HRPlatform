@@ -5,17 +5,17 @@ namespace HRPlatform.Models
 {
 	public class Skill
 	{
-		//[JsonIgnore]
+		[JsonIgnore]
 		public int Id { get; set; }
 
 		public string Name { get; set; } = string.Empty;
 
-		//[JsonIgnore]
-		public int CandidateId { get; set; } // FK ka Candidate
+		[JsonIgnore]
+		public int CandidateId { get; set; }
 
 		[JsonIgnore]
-		[ValidateNever]	//probaj kasnije sa DTO resenjem
-		public Candidate Candidate { get; set; }// = null;
+		[ValidateNever]
+		public Candidate Candidate { get; set; }
 	}
 
 }

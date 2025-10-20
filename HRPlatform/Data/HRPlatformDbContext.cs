@@ -8,15 +8,14 @@ namespace HRPlatform.Data
 		public HRPlatformDbContext(DbContextOptions<HRPlatformDbContext> options) : base(options)
 		{
 		}
-		public DbSet<Models.Candidate> Candidates { get; set; }// = null!;
-		public DbSet<Models.Skill> Skills { get; set; }// = null!;
+		public DbSet<Models.Candidate> Candidates { get; set; }
+		public DbSet<Models.Skill> Skills { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			modelBuilder.Entity<Skill>().HasIndex(s => s.Name).IsUnique(); //sprecava duplikate skill-ova
+			modelBuilder.Entity<Skill>().HasIndex(s => s.Name).IsUnique();
 
-			// Seed kandidati
 			modelBuilder.Entity<Candidate>().HasData(
 				new Candidate
 				{
@@ -36,7 +35,6 @@ namespace HRPlatform.Data
 				}
 			);
 
-			// Seed skillovi
 			modelBuilder.Entity<Skill>().HasData(
 
 				new Skill { Id = 1, Name = "C#", CandidateId = 1 },

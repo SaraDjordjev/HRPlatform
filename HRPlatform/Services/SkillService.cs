@@ -19,41 +19,27 @@ namespace HRPlatform.Services
 
 		public async Task<Skill> AddSkillToCandidateAsync(int candidateId, string skillName)
 		{
-			var candidate = await _context.Candidates
-		.Include(c => c.Skills)
-		.FirstOrDefaultAsync(c => c.Id == candidateId);
+			var candidate = await _context.Candidates.Include(c => c.Skills).FirstOrDefaultAsync(c => c.Id == candidateId);
 
 			if (candidate == null)
 				throw new Exception("Candidate not found");
 
-			// Da li već postoji taj skill u bazi
 			var skill = await _context.Skills
 				.FirstOrDefaultAsync(s => s.Name.ToLower() == skillName.ToLower());
 
-			// Ako ne postoji — kreiraj novi skill
 			if (skill == null)
 			{
 				skill = new Skill { Name = skillName };
 				_context.Skills.Add(skill);
 			}
 
-			// Ako kandidat već ima taj skill — preskoči
 			if (candidate.Skills.Any(s => s.Name.ToLower() == skillName.ToLower()))
 				throw new Exception($"Candidate already has the skill '{skillName}'.");
 
-			// Dodaj skill kandidatu
 			candidate.Skills.Add(skill);
-
 			await _context.SaveChangesAsync();
 
 			return skill;
-		}
-
-
-
-		public Task<List<Skill>> GetSkillsByCandidateAsync(int candidateId)
-		{
-			throw new NotImplementedException();
 		}
 
 		public async Task<Skill?> RemoveSkillFromCandidateAsync(int candidateId, string skillName)
@@ -66,7 +52,7 @@ namespace HRPlatform.Services
 				throw new Exception("Candidate not found");
 
 			var skill = candidate.Skills
-				.FirstOrDefault(s => s.Name.ToLower() == skillName.ToLower()); // case-insensitive
+				.FirstOrDefault(s => s.Name.ToLower() == skillName.ToLower());
 
 			if (skill == null)
 				throw new Exception("Skill not found for this candidate");
@@ -79,9 +65,7 @@ namespace HRPlatform.Services
 
 		public async Task<Skill?> UpdateSkillAsync(int candidateId, string oldSkillName, string newSkillName)
 		{
-			var candidate = await _context.Candidates
-				.Include(c => c.Skills)
-				.FirstOrDefaultAsync(c => c.Id == candidateId);
+			var candidate = await _context.Candidates.Include(c => c.Skills).FirstOrDefaultAsync(c => c.Id == candidateId);
 
 			if (candidate == null)
 				throw new Exception("Candidate not found");

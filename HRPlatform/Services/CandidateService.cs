@@ -17,10 +17,7 @@ namespace HRPlatform.Services
 		}
 		public async Task<Candidate> AddCandidateAsync(Candidate newCandidate)
 		{
-			//postojanje istog kandidata
 			var existingCandidate = await _context.Candidates.FirstOrDefaultAsync(c =>
-				//c.FullName == newCandidate.FullName &&
-				//c.DateOfBirth == newCandidate.DateOfBirth &&
 				c.Email == newCandidate.Email ||
 				c.ContactNumber == newCandidate.ContactNumber
 			);
@@ -34,7 +31,7 @@ namespace HRPlatform.Services
 			{
 				foreach (var skill in newCandidate.Skills)
 				{
-					skill.Candidate = newCandidate; // povezuje EF reference
+					skill.Candidate = newCandidate;
 				}
 			}
 
@@ -53,8 +50,6 @@ namespace HRPlatform.Services
 			var candidate = await _context.Candidates.Include(c => c.Skills).FirstOrDefaultAsync(c => c.Id == id); ;
 			if(candidate == null) return null;
 
-			//delete skills
-			// Obriši sve skill-ove
 			_context.Skills.RemoveRange(candidate.Skills);
 			_context.Candidates.Remove(candidate);
 			await _context.SaveChangesAsync();
@@ -77,13 +72,13 @@ namespace HRPlatform.Services
 
 		public async Task<IEnumerable<Candidate>> SearchCandidatesAsync(string? name, string? skill)
 		{
-			// Ako nisu uneti ni name ni skill, ne vraćaj sve
+			
 			if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(skill))
 			{
-				return new List<Candidate>(); // prazna lista
+				return new List<Candidate>();
 			}
 
-			var query = _context.Candidates.Include(c => c.Skills).AsQueryable(); //uslovi za dinamicko dodavanje
+			var query = _context.Candidates.Include(c => c.Skills).AsQueryable();
 
 			if (!string.IsNullOrWhiteSpace(name))
 			{
@@ -92,8 +87,7 @@ namespace HRPlatform.Services
 
 			if (!string.IsNullOrWhiteSpace(skill))
 			{
-				query = query.Where(c => c.Skills.Any(s => s.Name.ToLower().Contains(skill.ToLower()))); //Java->JavaScript
-				
+				query = query.Where(c => c.Skills.Any(s => s.Name.ToLower().Contains(skill.ToLower())));
 			}
 
 			return await query.ToListAsync();
