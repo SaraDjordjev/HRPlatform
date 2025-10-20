@@ -1,7 +1,6 @@
 # HRPlatform
 
-**HRPlatform** is a .NET Web API project for managing job candidates and their related skills.  
-It allows adding, searching, and managing candidates and their skills.  
+**HRPlatform** is a .NET Web API project for managing job candidates and their related skills. It allows adding, searching, and managing candidates and their skills.  
 
 ---
 
