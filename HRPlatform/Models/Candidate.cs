@@ -18,12 +18,13 @@ namespace HRPlatform.Models
 		public int Id { get; set; }
 		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
+		
 		[EmailAddress]
 		public string Email { get; set; }
+		
 		[Phone]
 		public string ContactNumber { get; set; }
-							
-		//many-to-many
+		
 		public List<Skill> Skills { get; set; } = new();
 	}
 }

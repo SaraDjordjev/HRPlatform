@@ -10,11 +10,7 @@ namespace HRPlatform.Models
 
 		public string Name { get; set; } = string.Empty;
 
-		//[JsonIgnore]
-		//public int CandidateId { get; set; }
-
 		[JsonIgnore]
-		//[ValidateNever]
 		public List<Candidate> Candidates { get; set; } = new();
 	}
 
