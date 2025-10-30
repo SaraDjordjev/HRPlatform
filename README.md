@@ -25,7 +25,7 @@ candidate, remove candidate, search candidate by name and/or given skill(s)
 
 ## How to Run
 
-1. Open the project in **Visual Studio 2022**  
+1. Open the project in **Visual Studio 2022** (first, git clone)
 2. Ensure SQL Server is running (e.g., `(localdb)\MSSQLLocalDB`)  
 3. Run migrations:
    ```powershell
