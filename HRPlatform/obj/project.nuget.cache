@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uws4YfE7Beo=",
+  "dgSpecHash": "/nerot9Ha8w=",
   "success": true,
-  "projectFilePath": "D:\\CS\\HRPlatform\\HRPlatform\\HRPlatform.csproj",
+  "projectFilePath": "D:\\CS\\HRPlatform1\\HRPlatform\\HRPlatform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sara\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Sara\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

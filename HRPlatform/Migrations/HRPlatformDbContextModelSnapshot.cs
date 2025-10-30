@@ -22,6 +22,53 @@ namespace HRPlatform.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CandidateSkills", b =>
+                {
+                    b.Property<int>("CandidateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CandidateId", "SkillId");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("CandidateSkills");
+
+                    b.HasData(
+                        new
+                        {
+                            CandidateId = 1,
+                            SkillId = 1
+                        },
+                        new
+                        {
+                            CandidateId = 1,
+                            SkillId = 2
+                        },
+                        new
+                        {
+                            CandidateId = 1,
+                            SkillId = 3
+                        },
+                        new
+                        {
+                            CandidateId = 2,
+                            SkillId = 4
+                        },
+                        new
+                        {
+                            CandidateId = 2,
+                            SkillId = 5
+                        },
+                        new
+                        {
+                            CandidateId = 2,
+                            SkillId = 6
+                        });
+                });
+
             modelBuilder.Entity("HRPlatform.Models.Candidate", b =>
                 {
                     b.Property<int>("Id")
@@ -76,18 +123,11 @@ namespace HRPlatform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CandidateId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CandidateId");
-
-                    b.HasIndex("Name");
 
                     b.ToTable("Skills");
 
@@ -95,55 +135,53 @@ namespace HRPlatform.Migrations
                         new
                         {
                             Id = 1,
-                            CandidateId = 1,
                             Name = "C#"
                         },
                         new
                         {
                             Id = 2,
-                            CandidateId = 1,
                             Name = "Unity"
                         },
                         new
                         {
                             Id = 3,
-                            CandidateId = 1,
                             Name = "SQL"
                         },
                         new
                         {
                             Id = 4,
-                            CandidateId = 2,
                             Name = "JavaScript"
                         },
                         new
                         {
                             Id = 5,
-                            CandidateId = 2,
                             Name = "React"
                         },
                         new
                         {
                             Id = 6,
-                            CandidateId = 2,
                             Name = "Node.js"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Java"
                         });
                 });
 
-            modelBuilder.Entity("HRPlatform.Models.Skill", b =>
+            modelBuilder.Entity("CandidateSkills", b =>
                 {
-                    b.HasOne("HRPlatform.Models.Candidate", "Candidate")
-                        .WithMany("Skills")
+                    b.HasOne("HRPlatform.Models.Candidate", null)
+                        .WithMany()
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Candidate");
-                });
-
-            modelBuilder.Entity("HRPlatform.Models.Candidate", b =>
-                {
-                    b.Navigation("Skills");
+                    b.HasOne("HRPlatform.Models.Skill", null)
+                        .WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

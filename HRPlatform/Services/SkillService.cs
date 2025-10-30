@@ -45,8 +45,8 @@ namespace HRPlatform.Services
 		public async Task<Skill?> RemoveSkillFromCandidateAsync(int candidateId, string skillName)
 		{
 			var candidate = await _context.Candidates
-	   .Include(c => c.Skills)
-	   .FirstOrDefaultAsync(c => c.Id == candidateId);
+				.Include(c => c.Skills)
+				.FirstOrDefaultAsync(c => c.Id == candidateId);
 
 			if (candidate == null)
 				throw new Exception("Candidate not found");
@@ -57,7 +57,7 @@ namespace HRPlatform.Services
 			if (skill == null)
 				throw new Exception("Skill not found for this candidate");
 
-			_context.Skills.Remove(skill);
+			candidate.Skills.Remove(skill);
 			await _context.SaveChangesAsync();
 
 			return skill;
@@ -70,15 +70,27 @@ namespace HRPlatform.Services
 			if (candidate == null)
 				throw new Exception("Candidate not found");
 
-			var skill = candidate.Skills.FirstOrDefault(s => s.Name == oldSkillName);
+			var oldSkill = candidate.Skills.FirstOrDefault(s => s.Name.ToLower() == oldSkillName.ToLower());
 
-			if (skill == null)
+			if (oldSkill == null)
 				throw new Exception("Skill not found for this candidate");
 
-			skill.Name = newSkillName;
+			var newSkill = await _context.Skills
+				.FirstOrDefaultAsync(s => s.Name.ToLower() == newSkillName.ToLower());
+
+			if (newSkill == null)
+			{
+				newSkill = new Skill { Name = newSkillName };
+				_context.Skills.Add(newSkill);
+				await _context.SaveChangesAsync();
+			}
+
+			candidate.Skills.Remove(oldSkill);
+			candidate.Skills.Add(newSkill);
 
 			await _context.SaveChangesAsync();
-			return skill;
+
+			return newSkill;
 		}
 	}
 }

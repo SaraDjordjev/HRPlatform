@@ -29,10 +29,19 @@ namespace HRPlatform.Services
 
 			if (newCandidate.Skills != null && newCandidate.Skills.Any())
 			{
+				var skillsToAssign = new List<Skill>();
+
 				foreach (var skill in newCandidate.Skills)
 				{
-					skill.Candidate = newCandidate;
+					var existingSkill = await _context.Skills
+						.FirstOrDefaultAsync(s => s.Name.ToLower() == skill.Name.ToLower());
+
+					if (existingSkill != null)
+						skillsToAssign.Add(existingSkill);
+					else
+						skillsToAssign.Add(skill);
 				}
+				newCandidate.Skills = skillsToAssign;
 			}
 
 			await _context.Candidates.AddAsync(newCandidate);
@@ -50,8 +59,9 @@ namespace HRPlatform.Services
 			var candidate = await _context.Candidates.Include(c => c.Skills).FirstOrDefaultAsync(c => c.Id == id); ;
 			if(candidate == null) return null;
 
-			_context.Skills.RemoveRange(candidate.Skills);
+			candidate.Skills.Clear();
 			_context.Candidates.Remove(candidate);
+
 			await _context.SaveChangesAsync();
 			return candidate;
 		}

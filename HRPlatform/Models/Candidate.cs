@@ -23,6 +23,7 @@ namespace HRPlatform.Models
 		[Phone]
 		public string ContactNumber { get; set; }
 							
-		public List<Skill> Skills { get; set; } = new List<Skill>();
+		//many-to-many
+		public List<Skill> Skills { get; set; } = new();
 	}
 }

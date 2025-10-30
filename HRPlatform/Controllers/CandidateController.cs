@@ -87,7 +87,6 @@ namespace HRPlatform.Controllers
 			}
 		}
 
-
 		[HttpDelete("{candidateId}/skills/{skillName}")]
 		public async Task<IActionResult> RemoveSkill(int candidateId, string skillName)
 		{

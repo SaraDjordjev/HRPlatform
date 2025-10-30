@@ -14,7 +14,19 @@ namespace HRPlatform.Data
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			modelBuilder.Entity<Skill>().HasIndex(s => s.Name).IsUnique();
+		
+			modelBuilder.Entity<Candidate>()
+								.HasMany(c => c.Skills)
+								.WithMany(s => s.Candidates)
+								.UsingEntity<Dictionary<string, object>>(
+									"CandidateSkills",
+									j => j.HasOne<Skill>().WithMany().HasForeignKey("SkillId"),
+									j => j.HasOne<Candidate>().WithMany().HasForeignKey("CandidateId"),
+									j =>
+									{
+										j.HasKey("CandidateId", "SkillId");
+									});
+
 
 			modelBuilder.Entity<Candidate>().HasData(
 				new Candidate
@@ -37,13 +49,22 @@ namespace HRPlatform.Data
 
 			modelBuilder.Entity<Skill>().HasData(
 
-				new Skill { Id = 1, Name = "C#", CandidateId = 1 },
-				new Skill { Id = 2, Name = "Unity", CandidateId = 1 },
-				new Skill { Id = 3, Name = "SQL", CandidateId = 1 },
+				new Skill { Id = 1, Name = "C#" },
+				new Skill { Id = 2, Name = "Unity" },
+				new Skill { Id = 3, Name = "SQL" },
+				new Skill { Id = 4, Name = "JavaScript" },
+				new Skill { Id = 5, Name = "React" },
+				new Skill { Id = 6, Name = "Node.js" },
+				new Skill { Id = 7, Name = "Java" }
+			);
 
-				new Skill { Id = 4, Name = "JavaScript", CandidateId = 2 },
-				new Skill { Id = 5, Name = "React", CandidateId = 2 },
-				new Skill { Id = 6, Name = "Node.js", CandidateId = 2 }
+			modelBuilder.Entity("CandidateSkills").HasData(
+				new { CandidateId = 1, SkillId = 1 },
+				new { CandidateId = 1, SkillId = 2 },
+				new { CandidateId = 1, SkillId = 3 },
+				new { CandidateId = 2, SkillId = 4 },
+				new { CandidateId = 2, SkillId = 5 },
+				new { CandidateId = 2, SkillId = 6 }
 			);
 		}
 	}
